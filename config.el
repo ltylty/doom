@@ -106,14 +106,20 @@
 (add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
 
 ;; Centaur-tabs
-(use-package centaur-tabs
-  :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
-(setq centaur-tabs-set-bar 'under)
-(map! :leader
-      :desc "kill other tabs"
-      "b o" #'centaur-tabs-kill-other-buffers-in-current-group)
+;; (use-package centaur-tabs
+;;   :bind
+;;   ("C-<prior>" . centaur-tabs-backward)
+;;   ("C-<next>" . centaur-tabs-forward))
+;; (setq centaur-tabs-set-bar 'under)
+;; (map! :leader
+;;       :desc "kill other tabs"
+;;       "b o" #'centaur-tabs-kill-other-buffers-in-current-group)
+
+;; tab-line
+(use-package tab-line
+    :hook (after-init . global-tab-line-mode)
+    :config
+    (set-face-attribute 'tab-line-tab-current nil :background "dark blue"))
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
@@ -148,3 +154,4 @@
 (setq evil-emacs-state-cursor 'hbar)
 (setq-default cursor-type 'hbar)
 (setq doom-modeline-modal-icon nil)
+
