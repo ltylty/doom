@@ -51,6 +51,4 @@
 
 (package! sqlformat)
 (package! evil-textobj-line)
-;; (package! company-tabnine)
-
-(package! tabnine :recipe (:host github :repo "shuxiao9058/tabnine"))
+(package! company-tabnine)

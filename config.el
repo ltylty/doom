@@ -92,34 +92,31 @@
 ;; company
 (add-hook 'shell-mode-hook (lambda() (company-mode 0)))
 (add-hook 'eshell-mode-hook (lambda() (company-mode 0)))
-;; (set-company-backend! 'prog-mode 'company-tabnine 'company-dabbrev-code)
-;; (set-company-backend! 'text-mode 'company-tabnine 'company-dabbrev)
-(set-company-backend! 'prog-mode 'company-capf 'company-dabbrev-code)
-(set-company-backend! 'text-mode 'company-capf 'company-dabbrev)
+(set-company-backend! 'text-mode 'company-dabbrev)
+(set-company-backend! 'sql-mode 'company-tabnine 'company-dabbrev-code)
 (after! company
   (setq
    company-dabbrev-code-ignore-case t
    company-dabbrev-ignore-case t))
 
-(require 'tabnine)
-(add-to-list 'prog-mode-hook #'tabnine-mode)
-(add-to-list 'completion-at-point-functions #'tabnine-completion-at-point)
-
 ;; Centaur-tabs
 ;; (use-package centaur-tabs
+;;   :demand
+;;   :config
+;;   (setq centaur-tabs-set-bar 'under)
+;;   (centaur-tabs-mode t)
 ;;   :bind
 ;;   ("C-<prior>" . centaur-tabs-backward)
 ;;   ("C-<next>" . centaur-tabs-forward))
-;; (setq centaur-tabs-set-bar 'under)
-;; (map! :leader
-;;       :desc "kill other tabs"
-;;       "b o" #'centaur-tabs-kill-other-buffers-in-current-group)
+(map! :leader
+      :desc "kill other tabs"
+      "b o" #'centaur-tabs-kill-other-buffers-in-current-group)
 
 ;; tab-line
-(use-package tab-line
-    :hook (after-init . global-tab-line-mode)
-    :config
-    (set-face-attribute 'tab-line-tab-current nil :background "dark blue"))
+;; (use-package tab-line
+;;     :hook (after-init . global-tab-line-mode)
+;;     :config
+;;     (set-face-attribute 'tab-line-tab-current nil :background "dark blue"))
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
@@ -127,12 +124,6 @@
 (map! :after sql
       :map sql-mode-map
       "C-c C-f" #'sqlformat)
-
-;; neotree
-;; (setq neo-window-fixed-size nil)
-;; (map! :map neotree-mode-map
-;;       :n ">" #'evil-window-increase-width
-;;       :n "<" #'evil-window-decrease-width)
 
 ;; treemacs
 (map! :leader
@@ -146,12 +137,9 @@
   (treemacs-project-follow-mode t))
 
 ;; evil
-(require 'evil-textobj-line)
 (use-package evil
   :custom
   evil-disable-insert-state-bindings t
   )
-(setq evil-emacs-state-cursor 'hbar)
-(setq-default cursor-type 'hbar)
+(require 'evil-textobj-line)
 (setq doom-modeline-modal-icon nil)
-
