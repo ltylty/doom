@@ -76,15 +76,7 @@
 ;; they are implemented.
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-;; (add-hook 'window-setup-hook #'recentf-mode)
-;; (add-hook 'window-setup-hook #'global-visual-line-mode)
 (+global-word-wrap-mode +1)
-
-;; (find-file "e:/OneDrive/note/stnts/todo.org")
-
-;; (map! :leader
-;;       :desc "last buffer"
-;;       "TAB" #'evil-switch-to-windows-last-buffer)
 
 (add-to-list 'process-coding-system-alist
                         '("[rR][gG]" . (utf-8 . gbk-dos)))
@@ -156,12 +148,3 @@
 (setq evil-emacs-state-cursor 'hbar)
 (setq-default cursor-type 'hbar)
 (setq doom-modeline-modal-icon nil)
-;; (add-hook! 'magit-status-mode-hook 'evil-emacs-state)
-;; (add-hook! 'magit-log-mode-hook 'evil-emacs-state)
-;; (define-key! :keymaps +default-minibuffer-maps
-;;     [escape] #'abort-recursive-edit)
-;; (define-key evil-emacs-state-map (kbd "<escape>") 'evil-normal-state)
-;; (add-to-list 'evil-emacs-state-modes 'magit-status-mode)
-;; (add-to-list 'evil-emacs-state-modes 'dired-mode)
-;; (add-to-list 'evil-emacs-state-modes 'treemacs-mode)
-;; (add-to-list 'evil-emacs-state-modes 'ediff-mode)
