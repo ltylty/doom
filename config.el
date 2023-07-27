@@ -90,33 +90,21 @@
 (set-selection-coding-system 'utf-16le-dos)
 
 ;; company
-(add-hook 'shell-mode-hook (lambda() (company-mode 0)))
-(add-hook 'eshell-mode-hook (lambda() (company-mode 0)))
-(set-company-backend! 'text-mode 'company-dabbrev)
-(set-company-backend! 'sql-mode 'company-tabnine 'company-dabbrev-code)
 (after! company
   (setq
    company-dabbrev-code-ignore-case t
    company-dabbrev-ignore-case t))
+(add-hook 'shell-mode-hook (lambda() (company-mode 0)))
+(add-hook 'eshell-mode-hook (lambda() (company-mode 0)))
+(set-company-backend! 'text-mode 'company-dabbrev)
+(set-company-backend! 'sql-mode 'company-tabnine 'company-dabbrev-code)
 
 ;; Centaur-tabs
-;; (use-package centaur-tabs
-;;   :demand
-;;   :config
-;;   (setq centaur-tabs-set-bar 'under)
-;;   (centaur-tabs-mode t)
-;;   :bind
-;;   ("C-<prior>" . centaur-tabs-backward)
-;;   ("C-<next>" . centaur-tabs-forward))
 (map! :leader
       :desc "kill other tabs"
       "b o" #'centaur-tabs-kill-other-buffers-in-current-group)
-
-;; tab-line
-;; (use-package tab-line
-;;     :hook (after-init . global-tab-line-mode)
-;;     :config
-;;     (set-face-attribute 'tab-line-tab-current nil :background "dark blue"))
+(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
+(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
