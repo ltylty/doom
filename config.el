@@ -94,12 +94,6 @@
 (set-company-backend! 'text-mode 'company-tabnine 'company-dabbrev)
 (set-company-backend! 'sql-mode 'company-tabnine 'company-dabbrev-code)
 
-;; tab-line
-(use-package tab-line
-    :hook (after-init . global-tab-line-mode)
-    :config
-    (set-face-attribute 'tab-line-tab-current nil :background "dark blue"))
-
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
 (setq sqlformat-args '("-l" "bigquery"))
