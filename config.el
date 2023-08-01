@@ -76,7 +76,6 @@
 ;; they are implemented.
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-;; (+global-word-wrap-mode +1)
 
 (add-to-list 'process-coding-system-alist
                         '("[rR][gG]" . (utf-8 . gbk-dos)))
