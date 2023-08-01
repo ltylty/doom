@@ -76,35 +76,30 @@
 ;; they are implemented.
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-(+global-word-wrap-mode +1)
+;; (+global-word-wrap-mode +1)
 
 (add-to-list 'process-coding-system-alist
                         '("[rR][gG]" . (utf-8 . gbk-dos)))
 
 (after! consult
-  (setq
-   consult-async-min-input 3
-   consult-async-input-debounce 0.4))
+  (setq consult-async-min-input 3
+        consult-async-input-debounce 0.4))
 
 (setq-hook! 'prog-mode-hook comment-line-break-function nil)
 (set-selection-coding-system 'utf-16le-dos)
 
 ;; company
 (after! company
-  (setq
-   company-dabbrev-code-ignore-case t
-   company-dabbrev-ignore-case t))
-(add-hook 'shell-mode-hook (lambda() (company-mode 0)))
-(add-hook 'eshell-mode-hook (lambda() (company-mode 0)))
-(set-company-backend! 'text-mode 'company-dabbrev)
+  (setq company-dabbrev-code-ignore-case t
+        company-dabbrev-ignore-case t))
+(set-company-backend! 'text-mode 'company-tabnine 'company-dabbrev)
 (set-company-backend! 'sql-mode 'company-tabnine 'company-dabbrev-code)
 
-;; Centaur-tabs
-(map! :leader
-      :desc "kill other tabs"
-      "b o" #'centaur-tabs-kill-other-buffers-in-current-group)
-(global-set-key (kbd "C-<prior>")  'centaur-tabs-backward)
-(global-set-key (kbd "C-<next>") 'centaur-tabs-forward)
+;; tab-line
+(use-package tab-line
+    :hook (after-init . global-tab-line-mode)
+    :config
+    (set-face-attribute 'tab-line-tab-current nil :background "dark blue"))
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
@@ -130,4 +125,3 @@
   evil-disable-insert-state-bindings t
   )
 (require 'evil-textobj-line)
-(setq doom-modeline-modal-icon nil)
