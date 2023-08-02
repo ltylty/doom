@@ -101,6 +101,9 @@
       :map sql-mode-map
       "C-c C-f" #'sqlformat)
 
+(set-formatter! 'my-sqlformat "sqlformat -r -")
+(setq-hook! 'sql-mode-hook +format-with 'my-sqlformat)
+
 ;; treemacs
 (map! :leader
       :desc "Select treemacs"
