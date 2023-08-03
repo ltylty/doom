@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-;; (setq org-directory "~/org/")
+(setq org-directory "~/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -80,19 +80,19 @@
 (add-to-list 'process-coding-system-alist
                         '("[rR][gG]" . (utf-8 . gbk-dos)))
 
-(after! consult
-  (setq consult-async-min-input 3
-        consult-async-input-debounce 0.4))
+;; (after! consult
+;;   (setq consult-async-min-input 3
+;;         consult-async-input-debounce 0.4))
 
-(setq-hook! 'prog-mode-hook comment-line-break-function nil)
 (set-selection-coding-system 'utf-16le-dos)
+(setq-hook! 'prog-mode-hook comment-line-break-function nil)
 
 ;; company
 (after! company
   (setq company-dabbrev-code-ignore-case t
         company-dabbrev-ignore-case t))
 (set-company-backend! 'text-mode 'company-tabnine 'company-dabbrev)
-(set-company-backend! 'sql-mode 'company-tabnine 'company-dabbrev-code)
+(set-company-backend! 'sql-mode 'company-dabbrev-code)
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
@@ -116,8 +116,13 @@
   (treemacs-project-follow-mode t))
 
 ;; evil
-(use-package evil
-  :custom
-  evil-disable-insert-state-bindings t
-  )
 (require 'evil-textobj-line)
+(require 'cua-base)
+(setq cua-keep-region-after-copy t)
+(define-key evil-insert-state-map (kbd "C-c") 'cua-copy-region)
+(define-key evil-insert-state-map (kbd "C-v") 'cua-paste)
+(define-key evil-insert-state-map (kbd "C-x") 'cua-cut-region)
+(define-key evil-insert-state-map (kbd "C-z") 'undo-fu-only-undo)
+(define-key evil-insert-state-map (kbd "C-y") 'undo-fu-only-redo)
+(define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
+(define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
