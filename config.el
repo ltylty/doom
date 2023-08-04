@@ -117,11 +117,9 @@
 
 ;; evil
 (require 'evil-textobj-line)
-(require 'cua-base)
-(setq cua-keep-region-after-copy t)
-(define-key evil-insert-state-map (kbd "C-c") 'cua-copy-region)
-(define-key evil-insert-state-map (kbd "C-v") 'cua-paste)
-(define-key evil-insert-state-map (kbd "C-x") 'cua-cut-region)
+(define-key evil-insert-state-map (kbd "C-c") 'kill-ring-save)
+(define-key evil-insert-state-map (kbd "C-v") 'yank)
+(define-key evil-insert-state-map (kbd "C-x") 'kill-region)
 (define-key evil-insert-state-map (kbd "C-z") 'undo-fu-only-undo)
 (define-key evil-insert-state-map (kbd "C-y") 'undo-fu-only-redo)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
