@@ -76,14 +76,7 @@
 ;; they are implemented.
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-
-(add-to-list 'process-coding-system-alist
-                        '("[rR][gG]" . (utf-8 . gbk-dos)))
-
-;; (after! consult
-;;   (setq consult-async-min-input 3
-;;         consult-async-input-debounce 0.4))
-
+(add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
 (setq-hook! 'prog-mode-hook comment-line-break-function nil)
 
