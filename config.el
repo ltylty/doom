@@ -94,7 +94,8 @@
       :map sql-mode-map
       "C-c C-f" #'sqlformat)
 
-(set-formatter! 'my-sqlformat "sqlformat -a -")
+(setenv "PYTHONIOENCODING" "utf-8")
+(set-formatter! 'my-sqlformat "sqlformat --encoding utf-8 -a -")
 (setq-hook! 'sql-mode-hook +format-with 'my-sqlformat)
 
 ;; treemacs
@@ -115,5 +116,13 @@
 (define-key evil-insert-state-map (kbd "C-x") 'kill-region)
 (define-key evil-insert-state-map (kbd "C-z") 'undo-fu-only-undo)
 (define-key evil-insert-state-map (kbd "C-y") 'undo-fu-only-redo)
+(define-key evil-insert-state-map (kbd "C-a") 'mark-page)
+(define-key evil-insert-state-map (kbd "C-d") 'kill-whole-line)
+(define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
+(define-key evil-insert-state-map (kbd "C-f") '+default/search-buffer)
+(define-key evil-insert-state-map (kbd "C-h") '+default/search-project)
+(define-key evil-insert-state-map (kbd "C-q") 'goto-last-change)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
+(define-key evil-insert-state-map (kbd "C-<prior>")  'centaur-tabs-backward)
+(define-key evil-insert-state-map (kbd "C-<next>") 'centaur-tabs-forward)
