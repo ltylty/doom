@@ -79,13 +79,14 @@
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
 (setq-hook! 'prog-mode-hook comment-line-break-function nil)
+(find-file "F:/code/temporary/todo.org")
 
 ;; company
 (after! company
   (setq company-dabbrev-code-ignore-case t
         company-dabbrev-ignore-case t))
-(set-company-backend! 'text-mode 'company-tabnine 'company-dabbrev)
-(set-company-backend! 'sql-mode 'company-dabbrev-code)
+(set-company-backend! 'text-mode 'company-dabbrev)
+(set-company-backend! 'sql-mode 'company-dabbrev-code 'company-dabbrev)
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
@@ -126,3 +127,5 @@
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
 (define-key evil-insert-state-map (kbd "C-<prior>")  'centaur-tabs-backward)
 (define-key evil-insert-state-map (kbd "C-<next>") 'centaur-tabs-forward)
+(define-key evil-insert-state-map (kbd "C-<up>") 'evil-scroll-line-up)
+(define-key evil-insert-state-map (kbd "C-<down>") 'evil-scroll-line-down)
