@@ -102,29 +102,9 @@
 (map! :leader
       :desc "Select treemacs"
       "0" #'treemacs-select-window)
-;; (map! :leader
-;;       :desc "treemacs current project"
-;;       "o t" #'treemacs-add-and-display-current-project-exclusively)
 (after! treemacs
   (setq treemacs-collapse-dirs 3)
   (treemacs-follow-mode t))
 
 ;; evil
 (require 'evil-textobj-line)
-;; (define-key evil-insert-state-map (kbd "C-c") 'kill-ring-save)
-;; (define-key evil-insert-state-map (kbd "C-v") 'yank)
-;; (define-key evil-insert-state-map (kbd "C-x") 'kill-region)
-;; (define-key evil-insert-state-map (kbd "C-z") 'undo-fu-only-undo)
-;; (define-key evil-insert-state-map (kbd "C-y") 'undo-fu-only-redo)
-;; (define-key evil-insert-state-map (kbd "C-a") 'mark-page)
-;; (define-key evil-insert-state-map (kbd "C-d") 'kill-whole-line)
-;; (define-key evil-insert-state-map (kbd "C-s") 'save-buffer)
-;; (define-key evil-insert-state-map (kbd "C-f") '+default/search-buffer)
-;; (define-key evil-insert-state-map (kbd "C-h") '+default/search-project)
-;; (define-key evil-insert-state-map (kbd "C-q") 'goto-last-change)
-;; (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
-;; (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
-;; (define-key evil-insert-state-map (kbd "C-<prior>")  'centaur-tabs-backward)
-;; (define-key evil-insert-state-map (kbd "C-<next>") 'centaur-tabs-forward)
-;; (define-key evil-insert-state-map (kbd "C-<up>") 'evil-scroll-line-up)
-;; (define-key evil-insert-state-map (kbd "C-<down>") 'evil-scroll-line-down)
