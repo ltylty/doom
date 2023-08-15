@@ -103,7 +103,8 @@
       :desc "Select treemacs"
       "0" #'treemacs-select-window)
 (after! treemacs
-  (setq treemacs-collapse-dirs 3)
+  (setq treemacs-collapse-dirs 5)
+  (treemacs-project-follow-mode t)
   (treemacs-follow-mode t))
 
 ;; evil
