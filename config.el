@@ -129,7 +129,11 @@
 (define-key evil-insert-state-map (kbd "C-/") 'comment-dwim)
 (define-key evil-insert-state-map (kbd "C-o") 'find-file)
 (define-key evil-insert-state-map (kbd "C-F") 'format-all-buffer)
-(define-key evil-insert-state-map (kbd "C-w") 'kill-current-buffer)
+(define-key evil-insert-state-map (kbd "C-<f4>") 'kill-current-buffer)
 (define-key evil-insert-state-map (kbd "C-n") 'centaur-tabs--create-new-tab)
 (define-key evil-insert-state-map (kbd "S-<left>") 'nil)
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
+(define-key evil-insert-state-map (kbd "M-S-<up>") 'er/expand-region)
+(define-key evil-insert-state-map (kbd "M-S-<down>") 'er/contract-region)
+(setq expand-region-contract-fast-key "<down>"
+            expand-region-reset-fast-key "<escape>")
