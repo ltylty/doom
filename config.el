@@ -136,4 +136,4 @@
 (define-key evil-insert-state-map (kbd "M-S-<up>") 'er/expand-region)
 (define-key evil-insert-state-map (kbd "M-S-<down>") 'er/contract-region)
 (setq expand-region-contract-fast-key "<down>"
-            expand-region-reset-fast-key "<escape>")
+      expand-region-reset-fast-key "<escape>")
