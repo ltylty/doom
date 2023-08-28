@@ -75,10 +75,11 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+(+global-word-wrap-mode +1)
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
-(setq-hook! 'prog-mode-hook comment-line-break-function nil)
+(setq-hook! 'sql-mode-hook comment-line-break-function nil)
 
 ;; company
 (after! company
@@ -128,9 +129,10 @@
 (define-key evil-insert-state-map (kbd "C-<down>") 'evil-scroll-line-down)
 (define-key evil-insert-state-map (kbd "C-/") 'comment-dwim)
 (define-key evil-insert-state-map (kbd "C-o") 'find-file)
-(define-key evil-insert-state-map (kbd "C-F") 'format-all-buffer)
+(define-key evil-insert-state-map (kbd "C-S-f") 'format-all-buffer)
 (define-key evil-insert-state-map (kbd "C-<f4>") 'kill-current-buffer)
 (define-key evil-insert-state-map (kbd "C-n") 'centaur-tabs--create-new-tab)
+(define-key evil-insert-state-map (kbd "S-<down-mouse-1>") 'mouse-save-then-kill)
 (define-key evil-insert-state-map (kbd "S-<left>") 'nil)
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
 (define-key evil-insert-state-map (kbd "M-S-<up>") 'er/expand-region)
