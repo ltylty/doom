@@ -110,12 +110,8 @@
 
 ;; evil
 (require 'evil-textobj-line)
-(defun yank-overwrite(beg end)
-  (interactive "r")
-  (delete-region beg end)
-  (yank 1))
 (define-key evil-insert-state-map (kbd "C-c") 'kill-ring-save)
-(define-key evil-insert-state-map (kbd "C-v") 'yank-overwrite)
+(define-key evil-insert-state-map (kbd "C-v") 'yank)
 (define-key evil-insert-state-map (kbd "C-x") 'kill-region)
 (define-key evil-insert-state-map (kbd "C-z") 'undo-fu-only-undo)
 (define-key evil-insert-state-map (kbd "C-y") 'undo-fu-only-redo)
@@ -145,3 +141,4 @@
 (define-key evil-insert-state-map (kbd "M-S-<down>") 'er/contract-region)
 (setq expand-region-contract-fast-key "<down>"
       expand-region-reset-fast-key "<escape>")
+(remove-hook 'evil-insert-state-exit-hook  #'+default-disable-delete-selection-mode-h)
