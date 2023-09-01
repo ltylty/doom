@@ -110,8 +110,12 @@
 
 ;; evil
 (require 'evil-textobj-line)
+(defun yank-overwrite(beg end)
+  (interactive "r")
+  (delete-region beg end)
+  (yank 1))
 (define-key evil-insert-state-map (kbd "C-c") 'kill-ring-save)
-(define-key evil-insert-state-map (kbd "C-v") 'yank)
+(define-key evil-insert-state-map (kbd "C-v") 'yank-overwrite)
 (define-key evil-insert-state-map (kbd "C-x") 'kill-region)
 (define-key evil-insert-state-map (kbd "C-z") 'undo-fu-only-undo)
 (define-key evil-insert-state-map (kbd "C-y") 'undo-fu-only-redo)
@@ -132,6 +136,8 @@
 (define-key evil-insert-state-map (kbd "C-S-f") 'format-all-buffer)
 (define-key evil-insert-state-map (kbd "C-<f4>") 'kill-current-buffer)
 (define-key evil-insert-state-map (kbd "C-n") 'centaur-tabs--create-new-tab)
+(define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
+(define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
 (define-key evil-insert-state-map (kbd "S-<down-mouse-1>") 'mouse-save-then-kill)
 (define-key evil-insert-state-map (kbd "S-<left>") 'nil)
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
