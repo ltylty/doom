@@ -85,8 +85,10 @@
 (after! company
   (setq company-dabbrev-code-ignore-case t
         company-dabbrev-ignore-case t))
-(set-company-backend! 'text-mode 'company-dabbrev)
-(set-company-backend! 'sql-mode '(company-dabbrev-code company-dabbrev))
+(after! text-mode
+        (set-company-backend! 'text-mode 'company-dabbrev))
+(after! sql-mode
+        (set-company-backend! 'sql-mode '(company-dabbrev-code company-dabbrev)))
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
@@ -110,6 +112,10 @@
 
 ;; evil
 (require 'evil-textobj-line)
+(defun insert-state-create-tab ()
+  (interactive)
+  (centaur-tabs--create-new-tab)
+  (evil-append 1))
 (define-key evil-insert-state-map (kbd "C-c") 'kill-ring-save)
 (define-key evil-insert-state-map (kbd "C-v") 'yank)
 (define-key evil-insert-state-map (kbd "C-x") 'kill-region)
@@ -131,7 +137,7 @@
 (define-key evil-insert-state-map (kbd "C-o") 'find-file)
 (define-key evil-insert-state-map (kbd "C-S-f") 'format-all-buffer)
 (define-key evil-insert-state-map (kbd "C-<f4>") 'kill-current-buffer)
-(define-key evil-insert-state-map (kbd "C-n") 'centaur-tabs--create-new-tab)
+(define-key evil-insert-state-map (kbd "C-n") 'insert-state-create-tab)
 (define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
 (define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
 (define-key evil-insert-state-map (kbd "S-<down-mouse-1>") 'mouse-save-then-kill)
