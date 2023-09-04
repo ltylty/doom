@@ -52,3 +52,4 @@
 (package! sqlformat)
 (package! evil-textobj-line)
 (package! company-fuzzy)
+(package! multiple-cursors)
