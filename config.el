@@ -84,11 +84,9 @@
 ;; company
 (after! company
   (setq company-dabbrev-code-ignore-case t
-        company-dabbrev-ignore-case t))
-(after! text-mode
-        (set-company-backend! 'text-mode 'company-dabbrev))
-(after! sql-mode
-        (set-company-backend! 'sql-mode '(company-dabbrev-code company-dabbrev)))
+        company-dabbrev-ignore-case t)
+  (set-company-backend! 'text-mode 'company-dabbrev)
+  (set-company-backend! 'sql-mode '(company-dabbrev-code company-dabbrev)))
 
 ;; sql-formatter
 (setq sqlformat-command 'sql-formatter)
