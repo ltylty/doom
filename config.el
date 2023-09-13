@@ -106,9 +106,10 @@
       :desc "Select treemacs"
       "0" #'treemacs-select-window)
 (after! treemacs
-  (setq treemacs-collapse-dirs 5)
+  (setq treemacs-collapse-dirs 10)
   (treemacs-project-follow-mode t)
-  (treemacs-follow-mode t))
+  (treemacs-follow-mode t)
+  (treemacs-git-mode 'deferred))
 
 ;; evil
 (require 'evil-textobj-line)
@@ -150,4 +151,3 @@
 (define-key evil-insert-state-map (kbd "M-S-<down>") 'er/contract-region)
 (setq expand-region-contract-fast-key "<down>"
       expand-region-reset-fast-key "<escape>")
-(remove-hook 'evil-insert-state-exit-hook  #'+default-disable-delete-selection-mode-h)
