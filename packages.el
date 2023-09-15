@@ -49,6 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+(package! symbol-overlay)
 (package! sqlformat)
 (package! evil-textobj-line)
 (package! company-fuzzy)

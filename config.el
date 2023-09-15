@@ -77,6 +77,7 @@
 
 (+global-word-wrap-mode +1)
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
+(add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
 (setq-hook! 'sql-mode-hook comment-line-break-function nil)
@@ -139,6 +140,7 @@
 (define-key evil-insert-state-map (kbd "C-n") 'insert-state-create-tab)
 (define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
 (define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
+(define-key evil-insert-state-map (kbd "C-M-<down>") 'duplicate-line)
 (define-key evil-insert-state-map (kbd "C-S-l") 'mc/mark-all-like-this)
 (define-key evil-insert-state-map (kbd "M-S-i") 'mc/edit-lines)
 (define-key evil-insert-state-map (kbd "M-i") 'mc/edit-lines)
