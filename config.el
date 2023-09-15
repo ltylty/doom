@@ -110,6 +110,14 @@
   (treemacs-follow-mode t)
   (treemacs-git-mode 'deferred))
 
+;; centaur-tabs
+(use-package! centaur-tabs
+  :init
+  (setq centaur-tabs-set-bar 'under)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward)
+  ("C-<next>" . centaur-tabs-forward))
+
 ;; evil
 (require 'evil-textobj-line)
 (defun insert-state-create-tab ()
@@ -129,8 +137,6 @@
 (define-key evil-insert-state-map (kbd "C-q") 'goto-last-change)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
-(define-key evil-insert-state-map (kbd "C-<prior>")  'centaur-tabs-backward)
-(define-key evil-insert-state-map (kbd "C-<next>") 'centaur-tabs-forward)
 (define-key evil-insert-state-map (kbd "C-<up>") 'evil-scroll-line-up)
 (define-key evil-insert-state-map (kbd "C-<down>") 'evil-scroll-line-down)
 (define-key evil-insert-state-map (kbd "C-/") 'comment-dwim)
