@@ -146,6 +146,7 @@
 (define-key evil-insert-state-map (kbd "C-n") 'insert-state-create-tab)
 (define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
 (define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
+(define-key evil-insert-state-map (kbd "C-M-<up>") 'duplicate-line)
 (define-key evil-insert-state-map (kbd "C-M-<down>") 'duplicate-line)
 (define-key evil-insert-state-map (kbd "C-S-l") 'mc/mark-all-like-this)
 (define-key evil-insert-state-map (kbd "M-S-i") 'mc/edit-lines)
