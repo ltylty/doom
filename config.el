@@ -97,8 +97,7 @@
       "C-c C-f" #'sqlformat)
 
 (setenv "PYTHONIOENCODING" "utf-8")
-(set-formatter! 'my-sqlformat "sqlformat --encoding utf-8 -a -")
-(setq-hook! 'sql-mode-hook +format-with 'my-sqlformat)
+(set-formatter! 'format-sql-with-sqlformat '("sqlformat" "--encoding" "utf-8" "-a" "-") :modes '(sql-mode))
 
 ;; treemacs
 (map! :leader
@@ -120,10 +119,6 @@
 
 ;; evil
 (require 'evil-textobj-line)
-(defun insert-state-create-tab ()
-  (interactive)
-  (centaur-tabs--create-new-tab)
-  (evil-append 1))
 (define-key evil-insert-state-map (kbd "C-c") 'kill-ring-save)
 (define-key evil-insert-state-map (kbd "C-v") 'yank)
 (define-key evil-insert-state-map (kbd "C-x") 'kill-region)
@@ -143,7 +138,7 @@
 (define-key evil-insert-state-map (kbd "C-o") 'find-file)
 (define-key evil-insert-state-map (kbd "C-S-f") 'format-all-buffer)
 (define-key evil-insert-state-map (kbd "C-<f4>") 'kill-current-buffer)
-(define-key evil-insert-state-map (kbd "C-n") 'insert-state-create-tab)
+(define-key evil-insert-state-map (kbd "C-n") 'centaur-tabs--create-new-tab)
 (define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
 (define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
 (define-key evil-insert-state-map (kbd "C-M-<up>") 'duplicate-line)
@@ -154,6 +149,8 @@
 (define-key evil-insert-state-map (kbd "S-<down-mouse-1>") 'mouse-save-then-kill)
 (define-key evil-insert-state-map (kbd "S-<left>") 'nil)
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
+(define-key evil-insert-state-map (kbd "M-<left>") 'better-jumper-jump-backward)
+(define-key evil-insert-state-map (kbd "M-<right>") 'better-jumper-jump-forward)
 (define-key evil-insert-state-map (kbd "M-S-<up>") 'er/expand-region)
 (define-key evil-insert-state-map (kbd "M-S-<down>") 'er/contract-region)
 (setq expand-region-contract-fast-key "<down>"
