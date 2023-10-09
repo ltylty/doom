@@ -52,4 +52,5 @@
 (package! symbol-overlay)
 (package! sqlformat)
 (package! evil-textobj-line)
-(package! company-fuzzy)
+(package! corfu)
+(package! cape)

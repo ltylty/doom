@@ -81,13 +81,14 @@
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
 (setq-hook! 'sql-mode-hook comment-line-break-function nil)
+(setq org-log-done 'time)
 
 ;; company
-(after! company
-  (setq company-dabbrev-code-ignore-case t
-        company-dabbrev-ignore-case t)
-  (set-company-backend! 'text-mode 'company-dabbrev)
-  (set-company-backend! 'sql-mode '(company-dabbrev-code company-dabbrev)))
+;; (after! company
+;;   (setq company-dabbrev-code-ignore-case t
+;;         company-dabbrev-ignore-case t)
+;;   (set-company-backend! 'text-mode 'company-dabbrev)
+;;   (set-company-backend! 'sql-mode '(company-dabbrev-code company-dabbrev)))
 
 ;; format sql
 (setq sqlformat-command 'sql-formatter)
@@ -123,3 +124,15 @@
   (cua-mode -1))
 (add-hook 'evil-insert-state-entry-hook #'cua-mode)
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
+
+(use-package! corfu
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 1)
+  :init
+  (global-corfu-mode))
+
+(use-package! cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
