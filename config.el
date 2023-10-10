@@ -80,7 +80,6 @@
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
-(setq-hook! 'sql-mode-hook comment-line-break-function nil)
 (setq org-log-done 'time)
 
 ;; format sql
@@ -117,3 +116,4 @@
   (cua-mode -1))
 (add-hook 'evil-insert-state-entry-hook #'cua-mode)
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
+(setq +evil-want-o/O-to-continue-comments nil)
