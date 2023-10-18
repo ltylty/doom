@@ -110,14 +110,6 @@
       (:prefix-map ("o" . "open")
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
 
-;; centaur-tabs
-(use-package! centaur-tabs
-  :init
-  (setq centaur-tabs-set-bar 'under)
-  :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
-
 ;; evil
 (require 'evil-textobj-line)
 (defun disable-cua-mode ()
