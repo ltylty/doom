@@ -106,6 +106,10 @@
   (treemacs-follow-mode t)
   (treemacs-git-mode 'deferred))
 
+(map! :leader
+      (:prefix-map ("o" . "open")
+      :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
+
 ;; centaur-tabs
 (use-package! centaur-tabs
   :init
