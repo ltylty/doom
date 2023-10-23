@@ -106,9 +106,23 @@
   (treemacs-follow-mode t)
   (treemacs-git-mode 'deferred))
 
+;; centaur-tabs
+(use-package! centaur-tabs
+  :init
+  :config
+  (setq centaur-tabs-set-bar 'under)
+  (centaur-tabs-enable-buffer-reordering)
+  (setq centaur-tabs-adjust-buffer-order t)
+  :bind
+  ("C-<prior>" . centaur-tabs-backward)
+  ("C-<next>" . centaur-tabs-forward))
+
 (map! :leader
       (:prefix-map ("o" . "open")
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
+(map! :leader
+      (:prefix-map ("b" . "buffer")
+      :desc "browse-file-directory" "o" #'centaur-tabs-kill-other-buffers-in-current-group))
 
 ;; evil
 (require 'evil-textobj-line)
