@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-bluloco-dark)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -116,13 +116,15 @@
   :bind
   ("C-<prior>" . centaur-tabs-backward)
   ("C-<next>" . centaur-tabs-forward))
-
 (map! :leader
       (:prefix-map ("o" . "open")
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
 (map! :leader
       (:prefix-map ("b" . "buffer")
       :desc "browse-file-directory" "o" #'centaur-tabs-kill-other-buffers-in-current-group))
+(map! :leader
+      (:prefix-map ("b" . "buffer")
+      :desc "tabs" "t" #'centaur-tabs-mode))
 
 ;; evil
 (require 'evil-textobj-line)
