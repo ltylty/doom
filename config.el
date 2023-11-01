@@ -133,3 +133,17 @@
 (add-hook 'evil-insert-state-entry-hook #'cua-mode)
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
 (setq +evil-want-o/O-to-continue-comments nil)
+
+;; completion
+(use-package corfu
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 1)
+  :init
+  (global-corfu-mode))
+
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-keyword))
