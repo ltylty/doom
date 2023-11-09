@@ -124,7 +124,7 @@
       :desc "browse-file-directory" "o" #'centaur-tabs-kill-other-buffers-in-current-group))
 (map! :leader
       (:prefix-map ("b" . "buffer")
-      :desc "tabs" "t" #'centaur-tabs-mode))
+      :desc "tabs" "t" #'centaur-tabs-local-mode))
 
 ;; evil
 (require 'evil-textobj-line)
