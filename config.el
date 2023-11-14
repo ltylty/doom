@@ -78,9 +78,15 @@
 (+global-word-wrap-mode +1)
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
-(add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
+
+;; consult
+(add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
+(add-to-list 'process-coding-system-alist '("[gG][rR][eE][pP]" . (utf-8 . gbk-dos)))
+(use-package! consult
+  :config
+  (setq consult-async-input-debounce 0.5))
 
 ;; doom-modeline
 (setq doom-modeline-buffer-encoding t)
@@ -97,34 +103,17 @@
 (set-formatter! 'format-sql-with-sqlformat '("sqlformat" "--encoding" "utf-8" "-a" "-") :modes '(sql-mode))
 
 ;; treemacs
-(map! :leader
-      :desc "Select treemacs"
-      "0" #'treemacs-select-window)
 (after! treemacs
   (setq treemacs-collapse-dirs 10)
   (treemacs-project-follow-mode t)
   (treemacs-follow-mode t)
   (treemacs-git-mode 'deferred))
-
-;; centaur-tabs
-(use-package! centaur-tabs
-  :init
-  :config
-  (setq centaur-tabs-set-bar 'under)
-  (centaur-tabs-enable-buffer-reordering)
-  (setq centaur-tabs-adjust-buffer-order t)
-  :bind
-  ("C-<prior>" . centaur-tabs-backward)
-  ("C-<next>" . centaur-tabs-forward))
+(map! :leader
+      :desc "Select treemacs"
+      "0" #'treemacs-select-window)
 (map! :leader
       (:prefix-map ("o" . "open")
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
-(map! :leader
-      (:prefix-map ("b" . "buffer")
-      :desc "browse-file-directory" "o" #'centaur-tabs-kill-other-buffers-in-current-group))
-(map! :leader
-      (:prefix-map ("b" . "buffer")
-      :desc "tabs" "t" #'centaur-tabs-local-mode))
 
 ;; evil
 (require 'evil-textobj-line)
