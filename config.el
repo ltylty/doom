@@ -81,11 +81,14 @@
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
 
+;; magit
+(after! magit
+  (setq magit-ediff-dwim-show-on-hunks t))
+
 ;; consult
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (add-to-list 'process-coding-system-alist '("[gG][rR][eE][pP]" . (utf-8 . gbk-dos)))
-(use-package! consult
-  :config
+(after! consult
   (setq consult-async-input-debounce 0.5))
 
 ;; doom-modeline
