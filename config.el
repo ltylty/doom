@@ -119,6 +119,10 @@
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
 
 ;; evil
+(use-package evil
+  :custom
+  evil-disable-insert-state-bindings t
+  )
 (require 'evil-textobj-line)
 (defun disable-cua-mode ()
   (cua-mode -1))
