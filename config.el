@@ -123,12 +123,12 @@
   :custom
   evil-disable-insert-state-bindings t
   )
-(require 'evil-textobj-line)
 (defun disable-cua-mode ()
   (cua-mode -1))
 (add-hook 'evil-insert-state-entry-hook #'cua-mode)
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
 (setq +evil-want-o/O-to-continue-comments nil)
+(require 'evil-textobj-line)
 
 ;; completion
 (use-package corfu
