@@ -54,3 +54,4 @@
 (package! evil-textobj-line)
 (package! corfu)
 (package! cape)
+(package! powershell)
