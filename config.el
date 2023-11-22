@@ -75,11 +75,19 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(+global-word-wrap-mode +1)
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
 (add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
+
+;; word-wrap
+(+global-word-wrap-mode +1)
+(setq text-category-table (copy-category-table))
+(dolist (char '(?- ?+ ?_ ?/ ?| ?\ ?. ?,))
+  (modify-category-entry char ?| text-category-table))
+(add-hook! '(prog-mode-hook text-mode-hook)
+  (set-category-table text-category-table)
+  (setq-local word-wrap-by-category t))
 
 ;; magit
 (after! magit
