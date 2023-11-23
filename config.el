@@ -83,7 +83,7 @@
 ;; word-wrap
 (+global-word-wrap-mode +1)
 (setq text-category-table (copy-category-table))
-(dolist (char '(?- ?+ ?_ ?/ ?| ?\ ?. ?,))
+(dolist (char '(?- ?+ ?/ ?| ?\ ?. ?,))
   (modify-category-entry char ?| text-category-table))
 (add-hook! '(prog-mode-hook text-mode-hook)
   (set-category-table text-category-table)
