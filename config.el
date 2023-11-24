@@ -82,12 +82,7 @@
 
 ;; word-wrap
 (+global-word-wrap-mode +1)
-(setq text-category-table (copy-category-table))
-(dolist (char '(?- ?+ ?/ ?| ?\ ?. ?,))
-  (modify-category-entry char ?| text-category-table))
-(add-hook! '(prog-mode-hook text-mode-hook)
-  (set-category-table text-category-table)
-  (setq-local word-wrap-by-category t))
+(setq word-wrap-by-category t)
 
 ;; magit
 (after! magit
@@ -144,8 +139,10 @@
   (corfu-cycle t)
   (corfu-auto t)
   (corfu-auto-prefix 1)
+  (corfu-auto-delay 0)
   :init
   (global-corfu-mode))
+(add-hook 'evil-insert-state-exit-hook #'corfu-quit)
 
 (use-package cape
   :init
