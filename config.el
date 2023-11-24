@@ -140,6 +140,9 @@
   (corfu-auto t)
   (corfu-auto-prefix 1)
   (corfu-auto-delay 0)
+  :bind
+  (:map corfu-map ("SPC" . corfu-insert-separator))
+  (:map corfu-map ("S-SPC" . corfu-quit))
   :init
   (global-corfu-mode))
 (add-hook 'evil-insert-state-exit-hook #'corfu-quit)
