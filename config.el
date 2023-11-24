@@ -122,32 +122,29 @@
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
 
 ;; evil
-(use-package evil
-  :custom
-  evil-disable-insert-state-bindings t
-  )
+(require 'evil-textobj-line)
+(setq +evil-want-o/O-to-continue-comments nil)
 (defun disable-cua-mode ()
   (cua-mode -1))
 (add-hook 'evil-insert-state-entry-hook #'cua-mode)
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
-(setq +evil-want-o/O-to-continue-comments nil)
-(require 'evil-textobj-line)
-
-;; completion
-(use-package corfu
-  :custom
-  (corfu-cycle t)
-  (corfu-auto t)
-  (corfu-auto-prefix 1)
-  (corfu-auto-delay 0)
-  :bind
-  (:map corfu-map ("SPC" . corfu-insert-separator))
-  (:map corfu-map ("S-SPC" . corfu-quit))
-  :init
-  (global-corfu-mode))
-(add-hook 'evil-insert-state-exit-hook #'corfu-quit)
+(define-key evil-insert-state-map (kbd "S-<left>") 'nil)
+(define-key evil-insert-state-map (kbd "S-<right>") 'nil)
+(define-key evil-insert-state-map (kbd "C-a") 'mark-page)
+(define-key evil-insert-state-map (kbd "C-d") 'kill-whole-line)
+(define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
+(define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
+(define-key evil-insert-state-map (kbd "C-<up>") 'evil-scroll-line-up)
+(define-key evil-insert-state-map (kbd "C-<down>") 'evil-scroll-line-down)
+(define-key evil-insert-state-map (kbd "C-/") 'comment-dwim)
+(define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
+(define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
+(define-key evil-insert-state-map (kbd "C-q") 'goto-last-change)
+(define-key evil-insert-state-map (kbd "M-<left>") 'better-jumper-jump-backward)
+(define-key evil-insert-state-map (kbd "M-<right>") 'better-jumper-jump-forward)
 
 (use-package cape
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-keyword))
+(global-set-key (kbd "M-i") 'completion-at-point)

@@ -52,5 +52,4 @@
 (package! symbol-overlay)
 (package! sqlformat)
 (package! evil-textobj-line)
-(package! corfu)
 (package! cape)
