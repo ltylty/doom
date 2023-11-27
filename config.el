@@ -130,21 +130,12 @@
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
 (define-key evil-insert-state-map (kbd "S-<left>") 'nil)
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
-(define-key evil-insert-state-map (kbd "C-a") 'mark-page)
-(define-key evil-insert-state-map (kbd "C-d") 'kill-whole-line)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
-(define-key evil-insert-state-map (kbd "C-<up>") 'evil-scroll-line-up)
-(define-key evil-insert-state-map (kbd "C-<down>") 'evil-scroll-line-down)
-(define-key evil-insert-state-map (kbd "C-/") 'comment-dwim)
-(define-key evil-insert-state-map (kbd "C-S-x") 'upcase-dwim)
-(define-key evil-insert-state-map (kbd "C-S-y") 'downcase-dwim)
 (define-key evil-insert-state-map (kbd "C-q") 'goto-last-change)
-(define-key evil-insert-state-map (kbd "M-<left>") 'better-jumper-jump-backward)
-(define-key evil-insert-state-map (kbd "M-<right>") 'better-jumper-jump-forward)
+(define-key evil-insert-state-map (kbd "M-i") 'completion-at-point)
 
 (use-package cape
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-keyword))
-(global-set-key (kbd "M-i") 'completion-at-point)
