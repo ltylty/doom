@@ -98,15 +98,9 @@
 (setq doom-modeline-buffer-encoding t)
 (setq doom-modeline-indent-info nil)
 
-;; format sql
-(setq sqlformat-command 'sql-formatter)
-(setq sqlformat-args '("-l" "bigquery"))
-(map! :after sql
-      :map sql-mode-map
+;; sqlformat
+(map! :map sql-mode-map
       "C-c C-f" #'sqlformat)
-
-(setenv "PYTHONIOENCODING" "utf-8")
-(set-formatter! 'format-sql-with-sqlformat '("sqlformat" "--encoding" "utf-8" "-a" "-") :modes '(sql-mode))
 
 ;; treemacs
 (after! treemacs
