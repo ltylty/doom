@@ -128,10 +128,23 @@
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
 (map! :nv "gh" #'evil-beginning-of-line)
 (map! :nv "gl" #'evil-end-of-line)
-(define-key evil-insert-state-map (kbd "M-i") 'completion-at-point)
 
 ;; completion
+(use-package corfu
+  :custom
+  (corfu-cycle t)
+  (corfu-auto t)
+  (corfu-auto-prefix 1)
+  (corfu-auto-delay 0)
+  :init
+  (global-corfu-mode))
+(add-hook 'evil-insert-state-exit-hook #'corfu-quit)
+
 (use-package cape
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-keyword))
+
+(use-package! orderless
+  :config
+  (setq completion-styles '(orderless flex)))
