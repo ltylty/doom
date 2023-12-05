@@ -107,7 +107,6 @@
   (setq treemacs-collapse-dirs 10)
   (treemacs-project-follow-mode t)
   (treemacs-follow-mode t)
-  (treemacs-tag-follow-mode t)
   (treemacs-git-mode 'deferred))
 (map! :leader
       :desc "Select treemacs"
