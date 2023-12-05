@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'modus-vivendi)
+(setq doom-theme 'doom-vibrant)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -107,6 +107,7 @@
   (setq treemacs-collapse-dirs 10)
   (treemacs-project-follow-mode t)
   (treemacs-follow-mode t)
+  (treemacs-tag-follow-mode t)
   (treemacs-git-mode 'deferred))
 (map! :leader
       :desc "Select treemacs"
