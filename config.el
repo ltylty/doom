@@ -116,16 +116,15 @@
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
 
 ;; evil
+(use-package evil
+  :custom
+  (evil-disable-insert-state-bindings t))
 (require 'evil-textobj-line)
 (setq +evil-want-o/O-to-continue-comments nil)
 (defun disable-cua-mode ()
   (cua-mode -1))
 (add-hook 'evil-insert-state-entry-hook #'cua-mode)
 (add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
-(define-key evil-insert-state-map (kbd "S-<left>") 'nil)
-(define-key evil-insert-state-map (kbd "S-<right>") 'nil)
-(define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
-(define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
 (map! :nv "gh" #'evil-beginning-of-line)
 (map! :nv "gl" #'evil-end-of-line)
 
