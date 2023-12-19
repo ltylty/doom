@@ -125,6 +125,7 @@
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
+(define-key evil-insert-state-map (kbd "M-/") 'completion-at-point)
 (map! :nv "gh" #'evil-beginning-of-line)
 (map! :nv "gl" #'evil-end-of-line)
 (require 'evil-textobj-line)
