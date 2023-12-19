@@ -130,21 +130,6 @@
 (require 'evil-textobj-line)
 
 ;; completion
-(use-package corfu
-  :custom
-  (corfu-cycle t)
-  (corfu-auto t)
-  (corfu-auto-prefix 1)
-  (corfu-auto-delay 0)
-  :init
-  (global-corfu-mode))
-(add-hook 'evil-insert-state-exit-hook #'corfu-quit)
-
 (use-package cape
   :init
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
-  (add-to-list 'completion-at-point-functions #'cape-keyword))
-
-(use-package! orderless
-  :config
-  (setq completion-styles '(orderless flex)))
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev))

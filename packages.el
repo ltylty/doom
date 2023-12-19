@@ -53,5 +53,3 @@
 (package! sqlformat)
 (package! evil-textobj-line)
 (package! cape)
-(package! corfu)
-(package! imenu-list)
