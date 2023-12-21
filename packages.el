@@ -49,9 +49,9 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! symbol-overlay)
 (package! sqlformat)
 (package! evil-textobj-line)
 (package! cape)
 (package! corfu)
 (package! ef-themes)
+(package! highlight-thing)

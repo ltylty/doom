@@ -76,9 +76,13 @@
 ;; they are implemented.
 
 (add-hook 'window-setup-hook #'toggle-frame-maximized)
-(add-hook 'prog-mode-hook #'symbol-overlay-mode)
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
+
+;; highlight-thing
+(add-hook 'prog-mode-hook 'highlight-thing-mode)
+(custom-set-faces
+   '(highlight-thing ((t (:background "dark slate gray" :foreground "white")))))
 
 ;; word-wrap
 (+global-word-wrap-mode +1)
