@@ -135,21 +135,9 @@
 (require 'evil-textobj-line)
 
 ;; completion
-(use-package cape
-  :init
-  (add-to-list 'completion-at-point-functions #'cape-keyword)
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev))
-
-(use-package corfu
-  :custom
-  (corfu-cycle t)
-  (corfu-auto t)
-  (corfu-auto-prefix 1)
-  (corfu-auto-delay 0)
-  :init
-  (global-corfu-mode))
-(add-hook 'evil-insert-state-exit-hook #'corfu-quit)
-
-(use-package! orderless
-  :config
-  (setq completion-styles '(orderless flex)))
+(after! company
+  (setq company-dabbrev-code-ignore-case t
+        company-dabbrev-code-modes t
+        company-dabbrev-code-completion-styles '(basic flex))
+  (set-company-backend! 'text-mode '(:separate company-capf company-dabbrev-code))
+  (set-company-backend! 'prog-mode '(company-capf company-dabbrev-code)))
