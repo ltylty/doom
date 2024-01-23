@@ -79,6 +79,14 @@
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
 
+;; company
+(after! company
+  (setq company-dabbrev-code-ignore-case t
+        company-dabbrev-code-modes t
+        company-dabbrev-code-completion-styles '(basic flex))
+  (set-company-backend! 'text-mode '(:separate company-capf company-dabbrev-code))
+  (set-company-backend! 'prog-mode '(company-capf company-dabbrev-code)))
+
 ;; highlight-thing
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (custom-set-faces
@@ -133,11 +141,3 @@
 (map! :nv "gh" #'evil-beginning-of-line)
 (map! :nv "gl" #'evil-end-of-line)
 (require 'evil-textobj-line)
-
-;; completion
-(after! company
-  (setq company-dabbrev-code-ignore-case t
-        company-dabbrev-code-modes t
-        company-dabbrev-code-completion-styles '(basic flex))
-  (set-company-backend! 'text-mode '(:separate company-capf company-dabbrev-code))
-  (set-company-backend! 'prog-mode '(company-capf company-dabbrev-code)))
