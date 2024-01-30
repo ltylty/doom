@@ -51,7 +51,5 @@
 
 (package! sqlformat)
 (package! evil-textobj-line)
-(package! cape)
-(package! corfu)
 (package! ef-themes)
 (package! highlight-thing)
