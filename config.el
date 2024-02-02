@@ -80,10 +80,13 @@
 (setq org-log-done 'time)
 
 ;; company
+(setq! +company-backend-alist
+  '((text-mode (:separate company-capf company-dabbrev-code))
+    (prog-mode company-capf company-dabbrev-code)
+    (conf-mode company-capf company-dabbrev-code)))
 (use-package! company
   :init
-  (setq company-backends '(company-capf company-dabbrev-code)
-        company-dabbrev-code-ignore-case t
+  (setq company-dabbrev-code-ignore-case t
         company-dabbrev-code-modes t
         company-dabbrev-code-completion-styles '(basic flex)))
 
