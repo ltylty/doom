@@ -80,12 +80,12 @@
 (setq org-log-done 'time)
 
 ;; company
-(after! company
-  (setq company-dabbrev-code-ignore-case t
+(use-package! company
+  :init
+  (setq company-backends '(company-capf company-dabbrev-code)
+        company-dabbrev-code-ignore-case t
         company-dabbrev-code-modes t
-        company-dabbrev-code-completion-styles '(basic flex))
-  (set-company-backend! 'text-mode '(:separate company-capf company-dabbrev-code))
-  (set-company-backend! 'prog-mode '(company-capf company-dabbrev-code)))
+        company-dabbrev-code-completion-styles '(basic flex)))
 
 ;; highlight-thing
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
@@ -98,6 +98,7 @@
 
 ;; magit
 (after! magit
+  (setq magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
   (setq magit-ediff-dwim-show-on-hunks t))
 
 ;; consult
