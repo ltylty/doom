@@ -101,6 +101,7 @@
 
 ;; magit
 (after! magit
+  (setq magit-status-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
   (setq magit-log-margin '(t "%Y-%m-%d %H:%M " magit-log-margin-width t 18))
   (setq magit-ediff-dwim-show-on-hunks t))
 
