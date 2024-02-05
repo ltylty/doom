@@ -92,6 +92,7 @@
 
 ;; highlight-thing
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
+(setq highlight-thing-exclude-thing-under-point t)
 (custom-set-faces
    '(highlight-thing ((t (:background "dark slate gray" :foreground "white")))))
 
