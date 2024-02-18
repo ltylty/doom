@@ -88,6 +88,7 @@
   :init
   (setq company-dabbrev-code-ignore-case t
         company-dabbrev-code-modes t
+        company-dabbrev-code-everywhere t
         company-dabbrev-code-completion-styles '(basic flex)))
 
 ;; highlight-thing
