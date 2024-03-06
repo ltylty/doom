@@ -111,7 +111,7 @@
 (add-to-list 'process-coding-system-alist '("[rR][gG]" . (utf-8 . gbk-dos)))
 (add-to-list 'process-coding-system-alist '("[gG][rR][eE][pP]" . (utf-8 . gbk-dos)))
 (after! consult
-  (setq consult-async-input-debounce 0.5))
+  (setq consult-async-input-debounce 0.8))
 
 ;; doom-modeline
 (setq doom-modeline-buffer-encoding t)
@@ -122,11 +122,11 @@
       "C-c C-f" #'sqlformat)
 
 ;; treemacs
+(setq! +treemacs-git-mode 'deferred)
 (after! treemacs
   (setq treemacs-collapse-dirs 10)
   (treemacs-project-follow-mode t)
-  (treemacs-follow-mode t)
-  (treemacs-git-mode 'deferred))
+  (treemacs-follow-mode t))
 (map! :leader
       :desc "Select treemacs"
       "0" #'treemacs-select-window)
