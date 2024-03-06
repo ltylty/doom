@@ -122,9 +122,7 @@
       "C-c C-f" #'sqlformat)
 
 ;; treemacs
-(setq! +treemacs-git-mode 'deferred)
 (after! treemacs
-  (setq treemacs-collapse-dirs 10)
   (treemacs-project-follow-mode t)
   (treemacs-follow-mode t))
 (map! :leader
