@@ -137,10 +137,14 @@
 
 ;; evil
 (setq! +evil-want-o/O-to-continue-comments nil)
-(defun disable-cua-mode ()
-  (cua-mode -1))
-(add-hook 'evil-insert-state-entry-hook #'cua-mode)
-(add-hook 'evil-insert-state-exit-hook  #'disable-cua-mode)
+(defun exit-insert-state ()
+  (cua-mode -1)
+  (setq org-support-shift-select nil))
+(defun entry-insert-state ()
+  (cua-mode 1)
+  (setq org-support-shift-select 'always))
+(add-hook 'evil-insert-state-entry-hook #'entry-insert-state)
+(add-hook 'evil-insert-state-exit-hook  #'exit-insert-state)
 (define-key evil-insert-state-map (kbd "S-<left>") 'nil)
 (define-key evil-insert-state-map (kbd "S-<right>") 'nil)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
