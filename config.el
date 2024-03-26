@@ -79,18 +79,6 @@
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
 
-;; company
-(setq! +company-backend-alist
-  '((text-mode (:separate company-capf company-dabbrev-code))
-    (prog-mode company-capf company-dabbrev-code)
-    (conf-mode company-capf company-dabbrev-code)))
-(use-package! company
-  :init
-  (setq company-dabbrev-code-ignore-case t
-        company-dabbrev-code-modes t
-        company-dabbrev-code-everywhere t
-        company-dabbrev-code-completion-styles '(basic flex)))
-
 ;; highlight-thing
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (setq highlight-thing-exclude-thing-under-point t)
@@ -136,7 +124,11 @@
       :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
 
 ;; evil
-(setq! +evil-want-o/O-to-continue-comments nil)
+(use-package! evil
+  :custom
+  (evil-disable-insert-state-bindings t)
+  (+evil-want-o/O-to-continue-comments nil))
+
 (defun exit-insert-state ()
   (cua-mode -1)
   (setq org-support-shift-select nil))
@@ -145,11 +137,8 @@
   (setq org-support-shift-select 'always))
 (add-hook 'evil-insert-state-entry-hook #'entry-insert-state)
 (add-hook 'evil-insert-state-exit-hook  #'exit-insert-state)
-(define-key evil-insert-state-map (kbd "S-<left>") 'nil)
-(define-key evil-insert-state-map (kbd "S-<right>") 'nil)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
-(define-key evil-insert-state-map (kbd "M-/") 'completion-at-point)
 (map! :nv "gh" #'evil-beginning-of-line)
 (map! :nv "gl" #'evil-end-of-line)
 (require 'evil-textobj-line)
