@@ -139,6 +139,6 @@
 (add-hook 'evil-insert-state-exit-hook  #'exit-insert-state)
 (define-key evil-insert-state-map (kbd "<home>") 'doom/backward-to-bol-or-indent)
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
-(map! :nv "gh" #'evil-beginning-of-line)
+(map! :nv "gh" #'evil-first-non-blank)
 (map! :nv "gl" #'evil-end-of-line)
 (require 'evil-textobj-line)
