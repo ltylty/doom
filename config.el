@@ -141,4 +141,7 @@
 (define-key evil-insert-state-map (kbd "<end>") 'doom/forward-to-last-non-comment-or-eol)
 (map! :nv "gh" #'evil-first-non-blank)
 (map! :nv "gl" #'evil-end-of-line)
+(after! esh-mode
+  (map! :map eshell-mode-map
+        :i  "C-w"  #'backward-kill-word))
 (require 'evil-textobj-line)
