@@ -81,7 +81,7 @@
        ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       (syntax +flymake)              ; tasing you for every semicolon you forget
+       syntax              ; tasing you for every semicolon you forget
        ;;(spell +flyspell +aspell) ; tasing you for misspelling mispelling
        ;;grammar           ; tasing grammar mistake every you make
 
@@ -96,7 +96,7 @@
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
        lookup              ; navigate your code and its documentation
-       (lsp +eglot)               ; M-x vscode
+       lsp               ; M-x vscode
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
@@ -142,7 +142,7 @@
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
-       ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
+       (java +lsp)       ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
