@@ -53,3 +53,4 @@
 (package! evil-textobj-line)
 (package! ef-themes)
 (package! highlight-thing)
+(package! eglot-java)

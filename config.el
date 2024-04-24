@@ -79,7 +79,8 @@
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
 
-;; highlight-thing
+;; prog
+(add-hook 'java-mode-hook 'eglot-java-mode)
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (setq highlight-thing-exclude-thing-under-point t)
 (custom-set-faces
