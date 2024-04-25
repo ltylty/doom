@@ -79,13 +79,6 @@
 (set-selection-coding-system 'utf-16le-dos)
 (setq org-log-done 'time)
 
-;; prog
-(add-hook 'java-mode-hook 'eglot-java-mode)
-(add-hook 'prog-mode-hook 'highlight-thing-mode)
-(setq highlight-thing-exclude-thing-under-point t)
-(custom-set-faces
-   '(highlight-thing ((t (:background "dark slate gray" :foreground "white")))))
-
 ;; word-wrap
 (+global-word-wrap-mode +1)
 (setq word-wrap-by-category t)
@@ -146,3 +139,11 @@
   (map! :map eshell-mode-map
         :i  "C-w"  #'backward-kill-word))
 (require 'evil-textobj-line)
+
+;; prog
+(add-hook 'java-mode-hook 'eglot-java-mode)
+
+(add-hook 'prog-mode-hook 'highlight-thing-mode)
+(setq highlight-thing-exclude-thing-under-point t)
+(custom-set-faces
+   '(highlight-thing ((t (:background "dark slate gray" :foreground "white")))))
