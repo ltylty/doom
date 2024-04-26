@@ -7,8 +7,8 @@
 (setq org-log-done 'time)
 
 ;; word-wrap
-(+global-word-wrap-mode +1)
 (setq word-wrap-by-category t)
+(global-visual-line-mode)
 
 ;; magit
 (after! magit

@@ -16,7 +16,6 @@
        (evil +everywhere)
        fold
        multiple-cursors
-       word-wrap
 
        :term
        eshell
