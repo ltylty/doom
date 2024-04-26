@@ -141,9 +141,9 @@
 (require 'evil-textobj-line)
 
 ;; prog
-(add-hook 'java-mode-hook 'eglot-java-mode)
-
 (add-hook 'prog-mode-hook 'highlight-thing-mode)
 (setq highlight-thing-exclude-thing-under-point t)
 (custom-set-faces
    '(highlight-thing ((t (:background "dark slate gray" :foreground "white")))))
+
+(add-hook 'java-mode-hook 'eglot-java-mode)
