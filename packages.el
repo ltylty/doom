@@ -54,3 +54,4 @@
 (package! ef-themes)
 (package! highlight-thing)
 (package! eglot-java)
+(package! treesit-auto)
