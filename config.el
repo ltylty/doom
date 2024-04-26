@@ -41,8 +41,8 @@
       :desc "Select treemacs"
       "0" #'treemacs-select-window)
 (map! :leader
-      (:prefix-map ("o" . "open")
-      :desc "browse-file-directory" "o" #'(lambda () (interactive) (browse-url default-directory))))
+      :desc "browse-file-directory"
+      "o o" #'(lambda () (interactive) (browse-url default-directory)))
 
 ;; evil
 (use-package! evil
