@@ -8,7 +8,7 @@
        ophints
        (popup +defaults)
        treemacs
-       (vc-gutter +pretty)
+       vc-gutter
        vi-tilde-fringe
        workspaces
 

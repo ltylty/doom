@@ -73,7 +73,7 @@
 (custom-set-faces
    '(highlight-thing ((t (:background "dark slate gray" :foreground "white")))))
 
-(use-package treesit-auto
+(use-package! treesit-auto
   :custom
   (treesit-auto-install 'prompt)
   :config
